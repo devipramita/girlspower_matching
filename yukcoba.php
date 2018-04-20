@@ -8,8 +8,8 @@ require_once('TwitterAPIExchange.php');
 $settings = array(
     'oauth_access_token' => "2343232429-9PjgW9HPOGuRAWSGrQ9DY12L6JdbHhUa4aeKqSx",
     'oauth_access_token_secret' => "BAiGojRpb7qDtyd2T1StiZNeyCxd8jG0JgM3CyaOO6B0g",
-    'consumer_key' => "I8uoh9fnf3gCECwXCHueZQsFy",
-    'consumer_secret' => "wArO3Ac83lTCC6Jtj9RkJkxAgjGN30A6P2MT22fSCofRbBcjbW"
+    'consumer_key' => "FiZ3GN69d3cVVSKDNjQUdtwGN",
+    'consumer_secret' => "HAmMmZCuWHtgfrKzle7FZjkwBIT2m9R5fnjMvpPhzX2SLro4Vi"
 );
  
 $url = "https://api.twitter.com/1.1/statuses/home_timeline.json";
@@ -21,8 +21,7 @@ $twitter = new TwitterAPIExchange($settings);
 $string = json_decode($twitter->setGetfield($getfield)
 		->buildOauth($url, $requestMethod)
 		->performRequest(),$assoc = TRUE);
-/*if($string["errors"][0]["message"] != "") {echo "<h3>Sorry, there was a problem.</h3><p>Twitter returned the following error message:</p><p><em>".$string[errors][0]["message"]."</em></p>";exit();}*/
-
+if($string["errors"][0]["message"] != "") {echo "<h3>Sorry, there was a problem.</h3><p>Twitter returned the following error message:</p><p><em>".$string[errors][0]["message"]."</em></p>";exit();}
 $temp = array();
 foreach($string as $items)
 {
