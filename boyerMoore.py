@@ -1,38 +1,45 @@
-# -*- coding: utf-8 -*-
+# -*-coding=utf-8 -*-
+import sys
+#sys.setdefaultencoding('utf-8')
 
 def bmMatch(text, pattern):
-	#btw last occurence di slide buat apa si wkwk
-	last = buildLast(pattern)
-	n = len(text)
-	m = len(pattern)
-	i = m-1
-	if (i > n-1):
-		return -1
-	j = m-1
-	status = True
-	while status:
-		if (pattern[j] == text[i]):
-			if (j==0):
-				return i
-			else: #looking-glass technique
-				i = i-1
-				j = j-1
-		else: #character jump technique
-			if (ord(text[i]) != None or ord(text[i]) < 128):
-				lo = last[ord(text[i])]
-			else:
-				lo = -1
-			i = i+m-min(j, 1+lo)
-			j = m-1
-		if (i > n-1):
-			status = False
-	return -1
+ alphabet = set(text)
+ last = buildLast(pattern, alphabet)
+ n = len(text)
+ m = len(pattern)
+ i = m-1
+ if (i < n):
+  status = True
+ else:
+  status = False
+ j = m-1
+ while status:
+  if (pattern[j] == text[i]):
+   if (j==0):
+    return i
+   else: #looking-glass technique
+    i = i-1
+    j = j-1
+  else: #character jump technique
+   #print("hehee", text[i])
+   lo = last(text[i])
+   i = i+m-min(j, 1+lo)
+   j = m-1
+  if (i >= n):
+   status = False
+ return -1
 
-def buildLast(pattern):
-	last = list()
-	for i in range (0, 257):
-		last.append(-1)
-	for i in range (0, len(pattern)):
-		last[ord(pattern[i])] = i
+class buildLast(object):
 
-	return last
+ def __init__(self, pattern, alphabet):
+  self.occurrences = dict()
+  for letter in alphabet:
+   self.occurrences[letter] = pattern.rfind(letter)
+
+ def __call__(self, letter):
+  return self.occurrences[letter]
+
+#print("tes")
+s = "Mantab Xiaomi Semoga dedek Xiaomi Fradella Naufalyn sehat dan sukses selalu. 😘😘 https://t.co/RH8n31xzbI"
+s.encode('utf-8')
+print(bmMatch(s, "Yuk"))

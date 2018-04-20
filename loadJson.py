@@ -122,8 +122,8 @@ def regex_findall(sentence, pattern):
 
 def main():
 	# Load the data that PHP sent us
-	print(sys.argv[2])
-	print(sys.argv[3])
+	#print(sys.argv[2])
+	#print(sys.argv[3])
 	string = sys.argv[1]
 	#data = string.split('$')
 	#print(data)
@@ -137,22 +137,25 @@ def main():
 		for item in data:
 			result = KMPmatch(item,pattern)
 			if (result != -1):
-				print("SPAM")
+				print("!!!SPAM!!!")
 			print(item)
+			print("SPLIT")
 	#print(data)
 	if (method == "bm"):
 		for x in data:
 			result = bmMatch(x,pattern)
 			if (result != -1):
-				print("SPAM")
+				print("!!!SPAM!!!")
 			print(x)
+			print("SPLIT")
 	#print(data)
 	if (method == "regex"):
 		for item in data:
 			result = regex_search(pattern,item)
 			if (result != -1):
-				print("SPAM")
+				print("!!!SPAM!!!")
 			print(item)
+			print("SPLIT")
 	
 
 if __name__ == '__main__': main()
