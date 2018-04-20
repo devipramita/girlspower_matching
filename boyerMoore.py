@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 def bmMatch(text, pattern):
 	#btw last occurence di slide buat apa si wkwk
 	last = buildLast(pattern)
@@ -16,7 +18,10 @@ def bmMatch(text, pattern):
 				i = i-1
 				j = j-1
 		else: #character jump technique
-			lo = last[ord(text[i])]
+			if (ord(text[i]) != None):
+				lo = last[ord(text[i])]
+			else:
+				lo = -1
 			i = i+m-min(j, 1+lo)
 			j = m-1
 		if (i > n-1):
@@ -25,7 +30,7 @@ def bmMatch(text, pattern):
 
 def buildLast(pattern):
 	last = list()
-	for i in range (0, 128):
+	for i in range (0, 257):
 		last.append(-1)
 	for i in range (0, len(pattern)):
 		last[ord(pattern[i])] = i
