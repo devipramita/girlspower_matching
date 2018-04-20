@@ -18,7 +18,7 @@ def bmMatch(text, pattern):
 				i = i-1
 				j = j-1
 		else: #character jump technique
-			if (ord(text[i]) != None):
+			if (ord(text[i]) != None or ord(text[i]) < 128):
 				lo = last[ord(text[i])]
 			else:
 				lo = -1
