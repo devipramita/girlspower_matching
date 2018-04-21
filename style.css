@@ -7,7 +7,11 @@ body {
     /* opacity: 0.5; */
 }
 h1 {
-	font-family: "comfortaa", sans-serif;
+    font-family: "comfortaa", sans-serif;
+    color: black;
+}
+h4 {
+    font-family: "comfortaa", sans-serif;
     color: black;
 }
 p {
@@ -20,7 +24,7 @@ p {
     font-size: 15pt;
 }
 
-@font-face { /* ketoe belum jalan font e */
+@font-face {
 	font-family: "comfortaa";
 	src: url("fonts/comfortaa_regular-webfont.woff")format("woff");
     font-weight: bold;
