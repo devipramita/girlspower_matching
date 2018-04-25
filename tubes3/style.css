@@ -1,0 +1,118 @@
+body {
+	height:100%;
+	width:100%;
+	background-image: url("img/pastel-background.jpg");
+	background-repeat:no-repeat;/*we want to have one single image not a repeated one*/
+	background-size:cover;
+    /* opacity: 0.5; */
+}
+h1 {
+    color: blue;
+}
+p {
+    color: black;
+    background: white; /* #ffe9ec */
+    border: 5px solid #F4C2C2; /* tebal border */
+    margin: 40px;
+    padding: 10px; /* tinggi box */
+    font-family: "comfortaa", sans-serif;
+    font-size: 15pt;
+}
+
+@font-face { /* ketoe belum jalan font e */
+	font-family: "comfortaa";
+	src: url("fonts/comfortaa_regular-webfont.woff")format("woff");
+    font-weight: bold;
+}
+
+.title {
+	padding: 10px;
+	font-size : 80px;
+	margin: auto;
+	font-family: "comfortaa", sans-serif;
+	font-weight:normal;
+	font-style:normal;
+	color: white;
+	text-align: center;
+}
+
+.form {
+	margin: center;
+	text-align: center;
+}
+
+.dropdown {
+	margin: center;
+	text-align: center;	
+}
+
+/* scroll bar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+/* about us */
+a {
+	margin: center;
+	text-align: center;
+	font-size: 15pt;
+	font-family: "comfortaa", sans-serif;
+}
+
+a:link {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+/*flex container */
+.flex-container {
+  display: flex;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  margin: 2 px;
+  padding: 50px;
+  font-size: 30px;
+}
+
+/* image resize */
+img.resize {
+  max-width: 80%;
+  max-height: 80%;
+}
